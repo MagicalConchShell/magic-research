@@ -2,8 +2,7 @@ from __future__ import annotations
 
 import operator
 from enum import Enum
-from typing import List
-from typing import TypedDict, Optional
+from typing import List, Optional, TypedDict
 
 from langgraph.graph import add_messages
 from pydantic import BaseModel, Field

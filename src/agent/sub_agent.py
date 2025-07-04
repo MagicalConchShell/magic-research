@@ -24,10 +24,7 @@ def generate_multi_sub_agent(state: ResearchState, config: RunnableConfig):
 
     plan = state.get("research_plan")
 
-    return [
-        Send("sub_agent", {"id": int(idx), "subagent": agent})
-        for idx, agent in enumerate(plan.subagents)
-    ]
+    return [Send("sub_agent", {"id": int(idx), "subagent": agent}) for idx, agent in enumerate(plan.subagents)]
 
 
 @tool
@@ -50,9 +47,7 @@ def web_fetch(url: Annotated[str, "The url to crawl."]):
         return error_msg
 
 
-def sub_agent(
-        state: SubAgentState, config: RunnableConfig
-) -> ResearchState:
+def sub_agent(state: SubAgentState, config: RunnableConfig) -> ResearchState:
     """Sub agent generate"""
     logger.info(f"sub agent [{state.get('id')}] running.")
     subagent = state.get("subagent")

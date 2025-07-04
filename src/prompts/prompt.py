@@ -43,9 +43,7 @@ def get_prompt(prompt_name: str, state: ResearchState) -> list:
         List of messages with the system prompt as the first message
     """
     # Convert state to dict for template rendering
-    state_vars = {
-        "CurrentDate": datetime.now().strftime("%a %b %d %Y %H:%M:%S %z")
-    }
+    state_vars = {"CurrentDate": datetime.now().strftime("%a %b %d %Y %H:%M:%S %z")}
 
     # Add configurable variables
     # if configurable:

@@ -15,7 +15,7 @@ from src.agent.human_feedback import human_feedback
 from src.agent.lead_agent import lead_agent
 from src.agent.reporter import reporter
 from src.agent.state import ResearchState
-from src.agent.sub_agent import sub_agent, generate_multi_sub_agent
+from src.agent.sub_agent import generate_multi_sub_agent, sub_agent
 from src.configuration import Configuration
 
 load_dotenv()
@@ -31,9 +31,7 @@ def build_graph():
     builder.add_node("reporter", reporter)
     builder.add_edge(START, "coordinator")
     # Add conditional edge to continue with sub agent
-    builder.add_conditional_edges(
-        "human_feedback", generate_multi_sub_agent, ["sub_agent"]
-    )
+    builder.add_conditional_edges("human_feedback", generate_multi_sub_agent, ["sub_agent"])
     builder.add_edge("sub_agent", "reporter")
     return builder.compile()
 

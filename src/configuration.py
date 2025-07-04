@@ -9,18 +9,13 @@ class Configuration(BaseModel):
     """The configuration for the agent."""
 
     @classmethod
-    def from_runnable_config(
-            cls, config: Optional[RunnableConfig] = None
-    ) -> "Configuration":
+    def from_runnable_config(cls, config: Optional[RunnableConfig] = None) -> "Configuration":
         """Create a Configuration instance from a RunnableConfig."""
-        configurable = (
-            config["configurable"] if config and "configurable" in config else {}
-        )
+        configurable = config["configurable"] if config and "configurable" in config else {}
 
         # Get raw values from environment or config
         raw_values: dict[str, Any] = {
-            name: os.environ.get(name.upper(), configurable.get(name))
-            for name in cls.model_fields.keys()
+            name: os.environ.get(name.upper(), configurable.get(name)) for name in cls.model_fields.keys()
         }
 
         # Filter out None values

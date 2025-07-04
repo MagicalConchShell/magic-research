@@ -1,14 +1,13 @@
 import logging
 import os
 import re
+from urllib.parse import urljoin
 
 import requests
-
-logger = logging.getLogger(__name__)
-
 from markdownify import markdownify as md
 from readabilipy import simple_json_from_html_string
-from urllib.parse import urljoin
+
+logger = logging.getLogger(__name__)
 
 
 class Article:

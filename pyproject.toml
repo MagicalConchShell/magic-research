@@ -1,7 +1,7 @@
 [project]
 name = "magic-research"
 version = "0.0.1"
-description = "Generates trip guide using LangGraph based on user prompts."
+description = "Multi-agent research system using LangGraph and FastAPI."
 authors = [
     { name = "Wang YuFei", email = "wangyufeimoon@gmail.com" },
 ]
@@ -9,12 +9,17 @@ readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.12"
 dependencies = [
+    "arxiv>=2.2.0",
+    "duckduckgo-search>=8.0.5",
+    "langchain-community>=0.3.27",
     "langchain-openai>=0.3.21",
     "langgraph>=0.2.6",
     "langgraph-api>=0.2.48",
     "langgraph-cli>=0.3.1",
     "litellm>=1.72.2",
+    "markdownify>=1.1.0",
     "python-dotenv>=1.0.1",
+    "readabilipy>=0.3.0",
 ]
 
 

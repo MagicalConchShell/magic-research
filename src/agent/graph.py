@@ -33,6 +33,7 @@ def build_graph():
     # Add conditional edge to continue with sub agent
     builder.add_conditional_edges("human_feedback", generate_multi_sub_agent, ["sub_agent"])
     builder.add_edge("sub_agent", "reporter")
+    builder.add_edge("reporter", END)
     return builder.compile()
 
 

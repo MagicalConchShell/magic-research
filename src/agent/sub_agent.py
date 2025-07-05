@@ -41,10 +41,10 @@ def web_fetch(url: Annotated[str, "The url to crawl."]):
     try:
         article = crawl(url)
         return {"url": url, "crawled_content": article.to_markdown()[:1000]}
-    except BaseException as e:
+    except Exception as e:
         error_msg = f"Failed to crawl. Error: {repr(e)}"
         logger.error(error_msg)
-        return error_msg
+        return {"url": url, "error": error_msg}
 
 
 def sub_agent(state: SubAgentState, config: RunnableConfig) -> ResearchState:
@@ -52,7 +52,7 @@ def sub_agent(state: SubAgentState, config: RunnableConfig) -> ResearchState:
     logger.info(f"sub agent [{state.get('id')}] running.")
     subagent = state.get("subagent")
 
-    tools = [ArxivQueryRun(name="web_search"), complete_task]
+    tools = [ArxivQueryRun(name="arxiv_search"), web_fetch, complete_task]
 
     agent_input = {
         "messages": [

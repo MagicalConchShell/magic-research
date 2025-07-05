@@ -279,7 +279,7 @@ As you progress through the search process:
 6. Avoid creating subagents to research topics that could cause harm. Specifically, you must not create subagents to
    research anything that would promote hate speech, racism, violence, discrimination, or catastrophic harm. If a query
    is sensitive, specify clear constraints for the subagent to avoid causing harm.
-7. Always use the language specified by the locale = zh-CN.
+7. Always use the language specified by the locale = {{ locale }}.
 </important_guidelines>
 
 You have a query provided to you by the user, which serves as your primary goal. You should do your best to thoroughly

@@ -1,0 +1,12 @@
+line-length = 120
+
+[format]
+quote-style = "double"
+
+[lint]
+[lint.per-file-ignores]
+"__init__.py" = [
+    "F401", # unused-import
+    "F811", # redefined-while-unused
+    "D104", #  Missing docstring
+]
